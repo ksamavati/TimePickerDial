@@ -12,6 +12,7 @@ body {
 	display:flex;
 	flex-direction: row;
 	align-items: center;
+	font-size: 16px;
 }
 
 .timepicker__number {
@@ -31,19 +32,24 @@ body {
 
 .timepicker__dial {
 	scroll-snap-type: y mandatory;
-	width: 70px;
-	height: 150px;
-	line-height: 90px;
-	border-radius: 50px;
+	/* width: 70px; */
+
+	height: 5em;
+	width: 2.1em;
+	line-height: 2.75em;
+	/* border-radius: 50px; */
+	border-radius: 1em;
 	margin: 0 5px;
 	font-size: 2em;
 	background-color: #ddd;
-	box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+	/* box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3); */
 	cursor: pointer;
 	transition: background-color 0.3s;
 	overflow: scroll;
-	border-radius: 50px;
-	box-shadow: inset 0 -8px 6px -6px rgba(0, 0, 0, 0.4);
+	/* box-shadow: inset 0.25em 0.25em 0.25em 0.25em rgba(0, 0, 0, 0.4); */
+	
+	/* [left] [top] [blur] [spread] */
+	box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.5);
 
 	display: flex;
 	justify-content: center;
@@ -51,8 +57,11 @@ body {
 
 }
 
-#timepicker__hourDial {
-	width: 120px;
+/* Hour dial is wider */
+#start-timepicker__hourDial {
+	width: 110px;
+	justify-content: right;
+	margin: 
 }
 
 /* Hide scrollbars */
@@ -66,3 +75,18 @@ body {
 	-ms-overflow-style: none;
 	scrollbar-width: none; /* Firefox */
   }
+
+  .timepicker__toggle {
+	padding: 5px 10px;
+	border: 1px solid #aaa;
+	background-color: #ddd;
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select:none;
+	font-size: 2em;
+	border-radius: 15px;
+}
+
+.timepicker__toggle:active {
+	background-color: #888;
+}

@@ -1,8 +1,12 @@
+const dials = document.querySelectorAll('.timepicker__dial');
+const hourDial = document.getElementById('start-timepicker__hourDial');
+const minTensDial = document.getElementById('start-timepicker__minuteTensDial');
+const minUnitsDial = document.getElementById('start-timepicker__minuteUnitsDial');
+const amPmToggle = document.getElementById("timepicker__amPmToggle");
+
 // --------------------------------------------------------------
 // ------- Apply scroll modifier to all 'timepicker__dial's -----
 // --------------------------------------------------------------
-const dials = document.querySelectorAll('.timepicker__dial');
-
 dials.forEach(element => {
     element.addEventListener('wheel', (event) => {
         event.preventDefault(); // Prevent default scroll behavior
@@ -15,11 +19,18 @@ dials.forEach(element => {
 });
 
 window.onload = function() {
-	dials.forEach(element => {
-		element.scrollBy(0, scrollAmount * direction); // Scroll the specific element
-		// Disable passive listening to be able to prevent default
-	});
+	hourDial.scrollBy(0, 4 * 100);
+	minTensDial.scrollBy(0, 5 * 100);
+	minUnitsDial.scrollBy(0, 9 * 100);
 };
+
+// --------------------------------------------------------------
+// ------- AM/PM Toggle -----------------------------------------
+// --------------------------------------------------------------
+amPmToggle.addEventListener("click", () => {
+	amPmToggle.textContent = amPmToggle.textContent === "AM" ? "PM" : "AM";
+	updateStartOfDay();
+});
 
 // document.addEventListener("DOMContentLoaded", function () {
 // 	const draggableHours = document.getElementById("timepicker__draggableHours");
